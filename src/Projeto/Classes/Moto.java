@@ -47,7 +47,7 @@ public class Moto {
         }
     }
 
-    public String exibirFicha() {
+    public void exibirFicha() {
         System.out.println("------------------------------");
         System.out.println("Marca: " + this.marca);
         System.out.println("Modelo: " + this.modelo);
@@ -57,7 +57,6 @@ public class Moto {
         System.out.println("Preco: " + this.preco);
         System.out.println("------------------------------");
         System.out.println("");
-        return "Ficheiro";
     }
 
     public String getMarca() {
