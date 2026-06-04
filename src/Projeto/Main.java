@@ -39,6 +39,9 @@ public class Main {
         System.out.printf("Escolha a segunda moto para comparar (digite 1 a %s): ", motos.size());
         escolhaMoto2 = input.nextInt();
 
+        Moto motoSelecionada1 = motos.get(escolhaMoto1 - 1);
+        Moto motoSelecionada2 = motos.get(escolhaMoto2 - 1);
+
         while (true) {
             System.out.println(mensagem);
             opcao = input.nextInt();
@@ -46,21 +49,24 @@ public class Main {
             switch (opcao) {
                 case 1:
                     System.out.println("Moto 1: ");
-                    motos.get(escolhaMoto1-1).exibirFicha();
+                    motoSelecionada1.exibirFicha();
                     System.out.println("Moto 2: ");
-                    motos.get(escolhaMoto2-1).exibirFicha();
+                    motoSelecionada2.exibirFicha();
                     break;
 
                 case 2:
-                    System.out.println(m1.comparacaoCilindrada(m1,m2));
+                    System.out.println(m1.comparacaoCilindrada(motoSelecionada1,motoSelecionada2));
+                    System.out.println("");
                     break;
 
                 case 3:
-                    System.out.println(m1.comparacaoPreco(m1,m2));
+                    System.out.println(m1.comparacaoPreco(motoSelecionada1,motoSelecionada2));
+                    System.out.println("");
                     break;
 
                 case 4:
-                    System.out.println(m1.comparacaoPeso(m1,m2));
+                    System.out.println(m1.comparacaoPeso(motoSelecionada1,motoSelecionada2));
+                    System.out.println("");
                     break;
 
                 case 5:
@@ -80,7 +86,7 @@ public class Main {
             if (opcao == 6) {
                 break;
             }
-
         }
+        input.close();
     }
 }

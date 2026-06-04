@@ -23,7 +23,7 @@ public class Moto {
         } else if (opcao2.cilindrada > opcao1.cilindrada){
             return opcao2.marca + " " + opcao2.modelo + " tem mais cilindrada: " + opcao2.cilindrada + "cc";
         } else {
-            return "Ambas tem a mesma cilindrada: " + opcao1.cilindrada;
+            return "Ambas têm a mesma cilindrada: " + opcao1.cilindrada;
         }
     }
 
@@ -33,7 +33,7 @@ public class Moto {
         } else if (opcao2.peso > opcao1.peso){
             return opcao2.marca + " " + opcao2.modelo + " é mais pesada: " + opcao2.peso + "Kg";
         } else {
-            return "Ambas tem o mesma peso: " + opcao1.peso;
+            return "Ambas têm o mesma peso: " + opcao1.peso;
         }
     }
 
@@ -43,7 +43,7 @@ public class Moto {
         } else if (opcao2.preco > opcao1.preco){
             return opcao2.marca + " " + opcao2.modelo + " é mais cara: " + "R$" + opcao2.preco;
         } else {
-            return "Ambas tem o mesmo preco: " + opcao1.preco;
+            return "Ambas têm o mesmo preço: " + opcao1.preco;
         }
     }
 
