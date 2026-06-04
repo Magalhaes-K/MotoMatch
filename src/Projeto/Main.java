@@ -5,6 +5,26 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+    public static int escolherMoto(Scanner input, int quantidadeMotos) {
+        int escolha;
+
+        do {
+            System.out.printf(
+                    "Escolha uma moto (1 a %d): ",
+                    quantidadeMotos
+            );
+
+            escolha = input.nextInt();
+
+            if (escolha < 1 || escolha > quantidadeMotos) {
+                System.out.println("Opção inválida!");
+            }
+
+        } while (escolha < 1 || escolha > quantidadeMotos);
+
+        return escolha;
+    }
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int escolhaMoto1;
@@ -34,10 +54,8 @@ public class Main {
             System.out.println((i+1) + " - " + motos.get(i).getMarca() + " " + motos.get(i).getModelo());
         }
 
-        System.out.printf("Escolha a primeira moto para comparar (digite 1 a %s): ", motos.size());
-        escolhaMoto1 = input.nextInt();
-        System.out.printf("Escolha a segunda moto para comparar (digite 1 a %s): ", motos.size());
-        escolhaMoto2 = input.nextInt();
+        escolhaMoto1 = escolherMoto(input, motos.size());
+        escolhaMoto2 = escolherMoto(input, motos.size());
 
         Moto motoSelecionada1 = motos.get(escolhaMoto1 - 1);
         Moto motoSelecionada2 = motos.get(escolhaMoto2 - 1);
