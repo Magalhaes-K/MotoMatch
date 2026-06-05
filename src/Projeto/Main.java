@@ -55,7 +55,15 @@ public class Main {
         }
 
         escolhaMoto1 = escolherMoto(input, motos.size());
-        escolhaMoto2 = escolherMoto(input, motos.size());
+
+        do {
+            escolhaMoto2 = escolherMoto(input, motos.size());
+
+            if (escolhaMoto1 == escolhaMoto2) {
+                System.out.println("Você deve escolher uma moto diferente da primeira.");
+            }
+
+        } while (escolhaMoto1 == escolhaMoto2);
 
         Moto motoSelecionada1 = motos.get(escolhaMoto1 - 1);
         Moto motoSelecionada2 = motos.get(escolhaMoto2 - 1);

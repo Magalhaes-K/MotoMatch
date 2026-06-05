@@ -33,7 +33,7 @@ public class Moto {
         } else if (opcao2.peso > opcao1.peso){
             return opcao2.marca + " " + opcao2.modelo + " é mais pesada: " + opcao2.peso + "Kg";
         } else {
-            return "Ambas têm o mesma peso: " + opcao1.peso;
+            return "Ambas têm o mesmo peso: " + opcao1.peso;
         }
     }
 
