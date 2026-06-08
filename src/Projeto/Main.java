@@ -8,21 +8,22 @@ public class Main {
     public static int escolherMoto(Scanner input, int quantidadeMotos) {
         int escolha;
 
-        do {
-            System.out.printf(
-                    "Escolha uma moto (1 a %d): ",
-                    quantidadeMotos
-            );
+        while (true) {
+
+            System.out.printf("Escolha uma moto (1 a %d): ", quantidadeMotos);
+
+            if (!input.hasNextInt()) {
+                System.out.println("Digite apenas números.");
+                input.next();
+                continue;
+            }
 
             escolha = input.nextInt();
 
-            if (escolha < 1 || escolha > quantidadeMotos) {
-                System.out.println("Opção inválida!");
+            if (escolha >= 1 && escolha <= quantidadeMotos) {
+                return escolha;
             }
-
-        } while (escolha < 1 || escolha > quantidadeMotos);
-
-        return escolha;
+        }
     }
 
     public static void main(String[] args) {
@@ -70,28 +71,33 @@ public class Main {
 
         while (true) {
             System.out.println(mensagem);
+            if (!input.hasNextInt()) {
+                System.out.println("Digite apenas números.");
+                input.next();
+                continue;
+            }
             opcao = input.nextInt();
 
             switch (opcao) {
                 case 1:
                     System.out.println("Moto 1: ");
-                    motoSelecionada1.exibirFicha();
+                    System.out.println(motoSelecionada1.exibirFicha());
                     System.out.println("Moto 2: ");
-                    motoSelecionada2.exibirFicha();
+                    System.out.println(motoSelecionada2.exibirFicha());
                     break;
 
                 case 2:
-                    System.out.println(m1.comparacaoCilindrada(motoSelecionada1,motoSelecionada2));
+                    System.out.println(motoSelecionada1.compararCilindrada(motoSelecionada2));
                     System.out.println("");
                     break;
 
                 case 3:
-                    System.out.println(m1.comparacaoPreco(motoSelecionada1,motoSelecionada2));
+                    System.out.println(motoSelecionada1.compararPreco(motoSelecionada2));
                     System.out.println("");
                     break;
 
                 case 4:
-                    System.out.println(m1.comparacaoPeso(motoSelecionada1,motoSelecionada2));
+                    System.out.println(motoSelecionada1.compararPeso(motoSelecionada2));
                     System.out.println("");
                     break;
 

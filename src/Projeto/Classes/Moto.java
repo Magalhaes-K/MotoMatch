@@ -17,46 +17,60 @@ public class Moto {
         this.peso = peso;
     }
 
-    public String comparacaoCilindrada(Moto opcao1, Moto opcao2) {
-        if (opcao1.cilindrada > opcao2.cilindrada){
-            return opcao1.marca + " " + opcao1.modelo + " tem mais cilindrada: " + opcao1.cilindrada + "cc";
-        } else if (opcao2.cilindrada > opcao1.cilindrada){
-            return opcao2.marca + " " + opcao2.modelo + " tem mais cilindrada: " + opcao2.cilindrada + "cc";
-        } else {
-            return "Ambas têm a mesma cilindrada: " + opcao1.cilindrada;
+    public String compararPreco(Moto outraMoto) {
+
+        if (this.preco > outraMoto.preco){
+            return this.marca + " " + this.modelo + " é mais cara: R$" + this.preco;
         }
+        if (this.preco < outraMoto.preco){
+            return outraMoto.marca + " " + outraMoto.modelo + " é mais cara: R$" + outraMoto.preco;
+        }
+
+        return "Ambas tem o mesmo preço: " + this.preco;
     }
 
-    public String  comparacaoPeso(Moto opcao1, Moto opcao2) {
-        if (opcao1.peso > opcao2.peso){
-            return opcao1.marca + " " + opcao1.modelo + " é mais pesada: " + opcao1.peso + "Kg";
-        } else if (opcao2.peso > opcao1.peso){
-            return opcao2.marca + " " + opcao2.modelo + " é mais pesada: " + opcao2.peso + "Kg";
-        } else {
-            return "Ambas têm o mesmo peso: " + opcao1.peso;
+    public String compararPeso(Moto outraMoto) {
+
+        if (this.peso > outraMoto.peso){
+            return this.marca + " " + this.modelo + " é mais pesada: " + this.peso + " KG";
         }
+        if (this.peso < outraMoto.peso){
+            return outraMoto.marca + " " + outraMoto.modelo + " é mais pesada: " + outraMoto.peso + "KG";
+        }
+
+        return "Ambas tem o mesmo peso: " + this.peso;
     }
 
-    public String comparacaoPreco(Moto opcao1, Moto opcao2) {
-        if (opcao1.preco > opcao2.preco){
-            return opcao1.marca + " " + opcao1.modelo + " é mais cara: " + "R$" + opcao1.preco;
-        } else if (opcao2.preco > opcao1.preco){
-            return opcao2.marca + " " + opcao2.modelo + " é mais cara: " + "R$" + opcao2.preco;
-        } else {
-            return "Ambas têm o mesmo preço: " + opcao1.preco;
+    public String compararCilindrada(Moto outraMoto) {
+
+        if (this.cilindrada > outraMoto.cilindrada){
+            return this.marca + " " + this.modelo + " é mais potente: " + this.cilindrada + "cc";
         }
+        if (this.cilindrada < outraMoto.cilindrada){
+            return outraMoto.marca + " " + outraMoto.modelo + " é mais potente: " + outraMoto.cilindrada + "cc";
+        }
+
+        return "Ambas tem a mesmo cilindrada: " + this.cilindrada + "cc";
     }
 
-    public void exibirFicha() {
-        System.out.println("------------------------------");
-        System.out.println("Marca: " + this.marca);
-        System.out.println("Modelo: " + this.modelo);
-        System.out.println("Tipo: " + this.tipo);
-        System.out.println("Cilindrada: " + this.cilindrada);
-        System.out.println("Peso: " + this.peso);
-        System.out.println("Preco: " + this.preco);
-        System.out.println("------------------------------");
-        System.out.println("");
+    public String exibirFicha() {
+        return """
+            ------------------------------
+            Marca: %s
+            Modelo: %s
+            Tipo: %s
+            Cilindrada: %.1f
+            Peso: %.1f
+            Preço: %.2f
+            ------------------------------
+            """.formatted(
+                marca,
+                modelo,
+                tipo,
+                cilindrada,
+                peso,
+                preco
+        );
     }
 
     public String getMarca() {
