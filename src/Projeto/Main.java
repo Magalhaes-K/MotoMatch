@@ -61,7 +61,7 @@ public class Main {
             escolhaMoto2 = escolherMoto(input, motos.size());
 
             if (escolhaMoto1 == escolhaMoto2) {
-                System.out.println("Você deve escolher uma moto diferente da primeira.");
+                System.out.println("Erro: Escolha uma moto diferente.");
             }
 
         } while (escolhaMoto1 == escolhaMoto2);
@@ -102,6 +102,17 @@ public class Main {
                     break;
 
                 case 5:
+                    System.out.println("Trocando motos...");
+                    escolhaMoto1 = escolherMoto(input, motos.size());
+                    do {
+                        escolhaMoto2 = escolherMoto(input, motos.size());
+                        if (escolhaMoto1 == escolhaMoto2) {
+                            System.out.println("Erro: Escolha uma moto diferente.");
+                        }
+                    } while (escolhaMoto1 == escolhaMoto2);
+
+                    motoSelecionada1 = motos.get(escolhaMoto1 - 1);
+                    motoSelecionada2 = motos.get(escolhaMoto2 - 1);
                     break;
 
                 case 6:
